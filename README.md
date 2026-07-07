@@ -2,6 +2,8 @@
 
 **Turn Claude Code into a one-person Awwwards-level web studio.**
 
+![Scroll-driven 3D journey built by Claude Code with this skill](demo.gif)
+
 A battle-tested [Agent Skill](https://code.claude.com/docs/en/skills) for Claude Code: free AI image & video generation (no API keys required), scroll-scrubbed video, Three.js spline camera journeys, Rive characters, print-ready CMYK PDFs, and a mandatory self-QA loop where Claude screenshots its own work and fixes it before showing you.
 
 **Live demo built with this skill (one session, from scratch):** https://spicy-panther-317.higgsfield.app — a scroll-driven 3D night flight: spline camera, bloom, animal silhouette "moon theatre", glowing wholesale portal, interactive animated 3D fox, game-style HUD and synthesized ambient sound. All assets free.
