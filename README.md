@@ -1,10 +1,19 @@
-# 🌙 OKO magic skill
+# 🌙 OKO skills for Claude Code
 
-**Turn Claude Code into a one-person Awwwards-level web studio.**
+**Battle-tested [Agent Skills](https://code.claude.com/docs/en/skills) that turn Claude Code into a one-person creative studio.** Free, one-command, no paid API required for the core.
+
+| Skill | What it does |
+|---|---|
+| 🌙 **[oko-magic](skills/oko-magic/)** | Awwwards-level websites — free AI generation, scroll-scrubbed video, Three.js spline journeys, Rive characters, print-ready CMYK PDFs, self-QA loop |
+| 🎬 **[reels-machine](skills/reels-machine/)** | Motion-design video editor under the hood — a script in, a finished vertical reel out: stock, RU neural voiceover, karaoke, 3D, infographics, 125 shader transitions, grading, music. A **content factory** that never repeats itself. |
+
+---
+
+## 🌙 oko-magic — one-person Awwwards-level web studio
 
 ![Scroll-driven 3D journey built by Claude Code with this skill](demo.gif)
 
-A battle-tested [Agent Skill](https://code.claude.com/docs/en/skills) for Claude Code: free AI image & video generation (no API keys required), scroll-scrubbed video, Three.js spline camera journeys, Rive characters, print-ready CMYK PDFs, and a mandatory self-QA loop where Claude screenshots its own work and fixes it before showing you.
+Free AI image & video generation (no API keys required), scroll-scrubbed video, Three.js spline camera journeys, Rive characters, print-ready CMYK PDFs, and a mandatory self-QA loop where Claude screenshots its own work and fixes it before showing you.
 
 **Live demo built with this skill (one session, from scratch):** https://spicy-panther-317.higgsfield.app — a scroll-driven 3D night flight: spline camera, bloom, animal silhouette "moon theatre", glowing wholesale portal, interactive animated 3D fox, game-style HUD and synthesized ambient sound. All assets free.
 
@@ -31,6 +40,20 @@ curl -o .claude/skills/oko-magic/SKILL.md \
 ```
 
 That's it. Claude Code picks it up automatically and triggers it on "make a website", "3D", "scroll effects", "like in that video", "generate images", "print PDF", etc.
+
+---
+
+## 🎬 reels-machine — motion-design video editor under the hood
+
+**A script in → a finished vertical video (1080×1920) at top-editor level.** Free, one command. Built to run a *content factory*: only your brand stays constant (logo, colors, subtitle font, endcard) — footage, effects, transitions, 3D, infographics, grade and music change every video, chosen by meaning from the script, with a repeat-blocking registry so 1000 reels don't feel like 1000 copies.
+
+RU neural voiceover with word-level karaoke · real vertical stock (Pexels/Pixabay/Mixkit) · **125 shader transitions** (`gl-transitions`) · **3D object inside the live shot**, 3D metal type, particles-into-logo, particle tunnels (three.js) · **2.5D parallax** from any photo (Depth-Anything, local) · Remotion infographics (spring bars, glowing line graphs, donuts, odometers, before/after) · kinetic typography · WebGL light leaks · MapLibre city flyover · `rembg` cutouts · niche color grading · music ducked under the voice. No paid key for the core.
+
+```bash
+cp -r skills/reels-machine .claude/skills/reels-machine   # then add your brand — see BRAND_SETUP.md
+```
+
+**→ Full docs: [skills/reels-machine/README.md](skills/reels-machine/)**
 
 ## Philosophy
 
