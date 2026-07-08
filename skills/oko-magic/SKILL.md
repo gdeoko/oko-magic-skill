@@ -84,3 +84,33 @@ clamp() типографика; 100svh; тач-цели 44px+; ховеры то
 
 ## ПОРЯДОК РАБОТЫ
 1. Память (brain/). 2. Бриф: субъект, аудитория, одна задача страницы. 3. План+фишка. 4. Генерации фоном, пока верстается каркас. 5. Вёрстка mobile-first. 6. Эффекты. 7. Self-QA цикл. 8. Сжатие ассетов. 9. Деплой + проверка live. 10. Показ. 11. Запись в brain/ + push.
+
+
+## SCROLL-WORLD: cinematic "fly through the world" sites (the reference technique)
+The look of NomadaToast/Emons/Apple scroll pages is NOT live three.js — it's **pre-rendered
+video scrubbed by scroll position**. The camera genuinely moves; scroll only drives time.
+Pipeline: N cohesive scene stills (one shared style preamble = cohesion) → N "dive-in" camera
+clips (image-to-video) → N-1 connector clips → a portable vanilla-JS scrub engine.
+**The one rule that makes or breaks it — seamless seams:** every connector's start/end images
+must be the *actual rendered frames* of its neighbour clips (extract with ffmpeg), NEVER the
+original stills — fresh renders differ slightly and "pop" at the seam. Then a tiny crossfade
+(~0.08) hides sub-pixel drift. Community skill: github.com/oso95/scroll-world (MIT).
+
+## VIDEO-SCRUB: the non-obvious gotchas (hard-won)
+1. **Frozen at frame 0 / stuck video** → the host doesn't serve HTTP byte-range, so
+   `video.seekable` is `[0,0]` and every seek clamps to 0. Fix: **fetch each clip as a Blob
+   and play from an object URL** (blobs are always fully seekable). Works on any static host,
+   incl. `python -m http.server`, and fixes Safari too. This is the single most common
+   "scrub doesn't work" cause.
+2. **Encoding:** native res, `-crf 20`, small GOP `-g 8` (not all-intra — that bloats an 8s
+   clip to ~25MB; GOP 8 ≈ 8MB and scrubs fine via blob), `+faststart`, `-an`, light `unsharp`.
+3. **Always dual-encode WebM(VP9)+MP4** — headless Chromium (and some browsers) won't decode
+   H.264; a QA that only sees the poster frame is a false pass.
+4. **JS order:** wait for `loadedmetadata` (else `duration`=0) before `gsap.to(video,{currentTime…})`;
+   bind Lenis to `ScrollTrigger.update`; drive currentTime from scrub, never `video.play()`.
+
+## QA GATE (don't ship without it)
+Drive the page headless, screenshot 3 scroll positions, **hash the video frames — all 3 must
+differ**. Identical hashes = currentTime isn't scrubbing (check byte-range/blob, loadedmetadata,
+GOP). Also: console clean, `scrollWidth<=innerWidth` at 360px, mobile + reduced-motion fallbacks.
+
