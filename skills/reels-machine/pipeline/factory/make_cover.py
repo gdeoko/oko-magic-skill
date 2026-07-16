@@ -1,7 +1,9 @@
 import os
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
-D="/tmp/claude-0/-home-user-OKO-TEAM/f1a565bc-8f30-56e2-87d2-1ade6002be0e/scratchpad/factory"
-W=D+"/work/v2"; F=D+"/reelsmachineskill_3/reels-machine/fonts"
+# D = per-run working root (holds the client logo + candidate cover frames); override via env.
+D=os.environ.get("FACTORY_ROOT", os.getcwd())
+W=os.environ.get("REEL_WORKDIR", D)
+F=os.path.abspath(os.path.join(os.path.dirname(__file__),"..","..","fonts"))  # repo fonts
 AMBER=(234,89,32); AMBER2=(255,138,72); WHITE=(246,244,241); INK=(12,10,8)
 m9=lambda s: ImageFont.truetype(F+"/montserrat-v31-cyrillic_latin-900.ttf",s)
 m7=lambda s: ImageFont.truetype(F+"/montserrat-v31-cyrillic_latin-700.ttf",s)

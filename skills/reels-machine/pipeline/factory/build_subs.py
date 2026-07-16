@@ -17,7 +17,7 @@ for ln in lines:
     LINES.append({"seg":seg,"start":ln[0]["start"],"end":ln[-1]["end"],
                   "words":[{"w":w["w"],"s":w["start"],"e":w["end"]} for w in ln]})
 # uniform styling: ONE font (Soyuz), bottom, no border, active word amber text
-FB="file:///tmp/claude-0/-home-user-OKO-TEAM/f1a565bc-8f30-56e2-87d2-1ade6002be0e/scratchpad/factory/reelsmachineskill_3/reels-machine/fonts"
+FB="file://"+os.path.abspath(os.path.join(os.path.dirname(__file__),"..","..","fonts"))
 _U={"font":"soyuz","y":1615,"size":76,"treat":"amberText"}
 STYLE={s:_U for s in ["s1","s2","s3","s4","s5","s6"]}
 HTML=("""<!doctype html><html><head><meta charset="utf-8"><style>

@@ -1,7 +1,7 @@
 import os,json
 W=os.path.dirname(os.path.abspath(__file__))
 TOTAL=json.load(open(W+"/words.json"))["total"]
-FB="file:///tmp/claude-0/-home-user-OKO-TEAM/f1a565bc-8f30-56e2-87d2-1ade6002be0e/scratchpad/factory/reelsmachineskill_3/reels-machine/fonts"
+FB="file://"+os.path.abspath(os.path.join(os.path.dirname(__file__),"..","..","fonts"))
 # clean animated scene titles (ONE font: Soyuz Bold, no borders). Only on open scenes (s1 hook, s6 CTA).
 TITLES=[
  {"lines":["СТОИТ КАК","ИНОМАРКА"],"accent":1,"start":1.7,"end":4.7,"y":760},
