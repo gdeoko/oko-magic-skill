@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont9';src:url('../../../../reelsmachineskill_3/reels-machine/fonts/montserrat-v31-cyrillic_latin-900.ttf')}
+@font-face{font-family:'Man8';src:url('../../../../reelsmachineskill_3/reels-machine/fonts/manrope-v20-cyrillic_latin-800.ttf')}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;background:transparent;overflow:hidden}
+:root{--amber:#EA5920;--amber2:#FF7A3C;--white:#F6F4F1}
+#card{position:absolute;left:70px;top:560px;width:940px;height:720px;
+  background:linear-gradient(160deg,rgba(14,11,9,.82),rgba(22,15,11,.66));
+  border:2px solid rgba(234,89,32,.5);border-radius:34px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#lbl{position:absolute;left:44px;top:34px;z-index:5}
+#lbl h3{font-family:'Mont9';color:var(--white);font-size:46px;line-height:1}
+#lbl p{font-family:'Man8';color:var(--amber2);font-size:28px;letter-spacing:2px;margin-top:8px}
+#tag{position:absolute;right:40px;top:40px;font-family:'Man8';font-size:26px;color:#0c0a08;
+  background:var(--amber);padding:12px 22px;border-radius:14px;z-index:5}
+svg{position:absolute;inset:0}
+</style></head><body>
+<div id="card">
+  <div id="lbl"><h3>Независимая<br>подвеска 4×4</h3><p>ГАСИТ ЛЮБУЮ ТРЯСКУ</p></div>
+  <div id="tag">ход 300 мм</div>
+  <svg viewBox="0 0 940 720" preserveAspectRatio="none">
+    <defs><linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a1c14"/><stop offset="1" stop-color="#0d0806"/></linearGradient></defs>
+    <!-- flat chassis line (stays level) -->
+    <rect id="chassis" x="120" y="470" width="700" height="26" rx="13" fill="none" stroke="#F6F4F1" stroke-width="5"/>
+    <text id="smoothtxt" x="470" y="452" font-family="Man8" font-size="24" fill="#8de08a" text-anchor="middle">РОВНО · БЕЗ ВИБРАЦИИ</text>
+    <!-- ground -->
+    <path id="ground" fill="url(#road)" stroke="#EA5920" stroke-width="4"/>
+    <!-- springs -->
+    <path id="spL" fill="none" stroke="#FF7A3C" stroke-width="6"/>
+    <path id="spR" fill="none" stroke="#FF7A3C" stroke-width="6"/>
+    <!-- wheels -->
+    <g id="wL"><circle r="66" fill="#141210" stroke="#EA5920" stroke-width="12"/><circle r="26" fill="none" stroke="#FF9A5A" stroke-width="7"/></g>
+    <g id="wR"><circle r="66" fill="#141210" stroke="#EA5920" stroke-width="12"/><circle r="26" fill="none" stroke="#FF9A5A" stroke-width="7"/></g>
+  </svg>
+</div>
+<script>
+const W=940,H=720, baseGround=600, chassisY=483;
+const xL=300, xR=640, amp=42, wl=140;
+const ground=document.getElementById('ground'),spL=document.getElementById('spL'),spR=document.getElementById('spR');
+const wL=document.getElementById('wL'),wR=document.getElementById('wR'),card=document.getElementById('card');
+function hAt(x,ph){ // bump height at screen x given phase
+  return Math.sin((x/wl + ph)*Math.PI*2)*amp + Math.sin((x/70 + ph*1.7)*Math.PI*2)*14;
+}
+function spring(x,y1,y2){ // zigzag coil between chassis bottom and axle
+  const n=6,dx=14; let d=`M ${x} ${y1}`;
+  for(let i=1;i<=n;i++){const yy=y1+(y2-y1)*i/n; d+=` L ${x+(i%2? dx:-dx)} ${yy}`;}
+  d+=` L ${x} ${y2}`; return d;
+}
+function ease(x){return 1-Math.pow(1-x,3)}
+function clamp(x){return Math.max(0,Math.min(1,x))}
+window.render=function(t){
+  const rev=ease(clamp(t/0.15)), out=ease(clamp((t-0.9)/0.1));
+  card.style.opacity=rev*(1-out); card.style.transform='translateY('+((1-rev)*36)+'px)';
+  const ph=t*3.0; // scroll speed
+  // ground path across width
+  let d=`M 0 ${H}`;
+  for(let x=0;x<=W;x+=10){ d+=` L ${x} ${baseGround - hAt(x,ph)}`; }
+  d+=` L ${W} ${H} Z`; ground.setAttribute('d',d);
+  // wheels sit on ground, axle above center of wheel
+  const gL=baseGround-hAt(xL,ph), gR=baseGround-hAt(xR,ph);
+  const wLy=gL-66, wRy=gR-66;
+  wL.setAttribute('transform',`translate(${xL} ${wLy}) rotate(${ph*260})`);
+  wR.setAttribute('transform',`translate(${xR} ${wRy}) rotate(${ph*260})`);
+  // springs connect chassis (fixed y) to axle (moving)
+  spL.setAttribute('d',spring(xL,chassisY+13,wLy));
+  spR.setAttribute('d',spring(xR,chassisY+13,wRy));
+};
+window.render(0);
+</script></body></html>
