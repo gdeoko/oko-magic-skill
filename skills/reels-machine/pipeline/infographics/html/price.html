@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont9';src:url('../../../fonts/montserrat-v31-cyrillic_latin-900.ttf')}
+@font-face{font-family:'Mont7';src:url('../../../fonts/montserrat-v31-cyrillic_latin-700.ttf')}
+@font-face{font-family:'Man8';src:url('../../../fonts/manrope-v20-cyrillic_latin-800.ttf')}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;background:transparent;overflow:hidden}
+:root{--amber:#EA5920;--amber2:#FF7A3C;--ink:#0c0a08;--white:#F6F4F1}
+#scrim{position:absolute;left:-200px;top:340px;width:1480px;height:1080px;
+  background:radial-gradient(ellipse 50% 40% at 50% 50%,rgba(0,0,0,.72),rgba(0,0,0,.32) 55%,rgba(0,0,0,0) 75%)}
+#c{position:absolute;left:0;top:640px;width:1080px;text-align:center}
+#kick{font-family:'Man8';color:var(--white);font-size:38px;letter-spacing:6px;opacity:.9}
+#pill{display:inline-flex;align-items:baseline;gap:6px;margin-top:26px;
+  background:linear-gradient(135deg,#EA5920,#FF8A48);border-radius:40px;padding:30px 60px;
+  box-shadow:0 26px 70px rgba(234,89,32,.5)}
+#pre{font-family:'Mont7';color:var(--ink);font-size:56px;align-self:center;margin-right:6px}
+#num{font-family:'Mont9';color:var(--ink);font-size:150px;line-height:.9;letter-spacing:-2px}
+#rub{font-family:'Mont9';color:var(--ink);font-size:110px}
+#track{display:flex;justify-content:center;gap:0;margin-top:64px}
+.node{display:flex;flex-direction:column;align-items:center;width:230px;position:relative}
+.dot{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.4)}
+.node.on .dot{background:var(--amber2);border-color:#fff;box-shadow:0 0 24px var(--amber2)}
+.node .t{font-family:'Man8';font-size:30px;color:var(--white);margin-top:16px;opacity:.55}
+.node.on .t{opacity:1}
+.bar{position:absolute;top:15px;left:50%;width:230px;height:4px;background:rgba(255,255,255,.2);z-index:-1}
+.bar i{display:block;height:100%;width:0;background:var(--amber2)}
+.node:last-child .bar{display:none}
+</style></head><body>
+<div id="scrim"></div>
+<div id="c">
+  <div id="kick">ПОД КЛЮЧ · С ДОСТАВКОЙ</div>
+  <div id="pill"><span id="pre">от</span><span id="num">0</span><span id="rub">₽</span></div>
+  <div id="track">
+    <div class="node" data-i="0"><div class="dot"></div><div class="t">завод</div><div class="bar"><i></i></div></div>
+    <div class="node" data-i="1"><div class="dot"></div><div class="t">страховка</div><div class="bar"><i></i></div></div>
+    <div class="node" data-i="2"><div class="dot"></div><div class="t">таможня</div><div class="bar"><i></i></div></div>
+    <div class="node" data-i="3"><div class="dot"></div><div class="t">под ключ</div></div>
+  </div>
+</div>
+<script>
+const TARGET=995000, num=document.getElementById('num'), c=document.getElementById('c');
+const nodes=[...document.querySelectorAll('.node')], bars=[...document.querySelectorAll('.bar i')];
+function ease(x){return 1-Math.pow(1-x,3)}
+function clamp(x){return Math.max(0,Math.min(1,x))}
+function sp(n){return Math.round(n).toLocaleString('ru-RU').replace(/,/g,' ').replace(/ /g,' ')}
+window.render=function(t){
+  const rev=ease(clamp(t/0.12)), out=ease(clamp((t-0.92)/0.08));
+  document.getElementById('scrim').style.opacity=rev*(1-out);
+  c.style.opacity=rev*(1-out);
+  c.style.transform='scale('+(0.92+0.08*rev)+')';
+  const g=ease(clamp((t-0.08)/0.55));
+  const val=Math.round(TARGET*g/1000)*1000;
+  num.textContent=sp(val);
+  // process nodes light up across 0.1..0.75
+  nodes.forEach((n,i)=>{const on=(t-0.12)/0.62 > i/3.4; n.classList.toggle('on',on);});
+  bars.forEach((b,i)=>{const p=clamp(((t-0.12)/0.62)*3.4 - i); b.style.width=(ease(clamp(p))*100)+'%';});
+};
+window.render(0);
+</script></body></html>

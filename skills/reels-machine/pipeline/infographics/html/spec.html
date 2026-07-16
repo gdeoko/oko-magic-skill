@@ -1,0 +1,66 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont9';src:url('../../../fonts/montserrat-v31-cyrillic_latin-900.ttf')}
+@font-face{font-family:'Mont7';src:url('../../../fonts/montserrat-v31-cyrillic_latin-700.ttf')}
+@font-face{font-family:'Man8';src:url('../../../fonts/manrope-v20-cyrillic_latin-800.ttf')}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;background:transparent;overflow:hidden}
+:root{--amber:#EA5920;--amber2:#FF7A3C;--ink:#0c0a08;--white:#F6F4F1}
+#wrap{position:absolute;left:70px;top:600px;width:940px}
+.panel{background:linear-gradient(160deg,rgba(16,12,10,.86),rgba(24,16,12,.72));
+  border:2px solid rgba(234,89,32,.55);border-radius:34px;padding:38px 44px;
+  backdrop-filter:blur(6px);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.top{display:flex;align-items:center;gap:34px}
+.gauge{position:relative;width:220px;height:220px;flex:0 0 220px}
+.gnum{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gnum b{font-family:'Mont9';color:var(--white);font-size:82px;line-height:.9}
+.gnum span{font-family:'Man8';color:var(--amber2);font-size:30px;letter-spacing:3px;margin-top:4px}
+.ttl{font-family:'Mont7';color:var(--white);font-size:40px;line-height:1.15}
+.ttl em{color:var(--amber2);font-style:normal}
+.chips{display:flex;gap:18px;margin-top:30px;flex-wrap:wrap}
+.chip{font-family:'Man8';font-size:30px;color:var(--white);background:rgba(234,89,32,.16);
+  border:2px solid rgba(234,89,32,.6);border-radius:18px;padding:16px 26px;letter-spacing:1px}
+.chip b{color:var(--amber2)}
+</style></head><body>
+<div id="wrap"><div class="panel">
+  <div class="top">
+    <svg class="gauge" viewBox="0 0 220 220">
+      <circle cx="110" cy="110" r="96" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="16"/>
+      <circle id="arc" cx="110" cy="110" r="96" fill="none" stroke="url(#g)" stroke-width="16"
+        stroke-linecap="round" transform="rotate(135 110 110)"/>
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#EA5920"/><stop offset="1" stop-color="#FF9A5A"/></linearGradient></defs>
+    </svg>
+    <div class="gnum" style="left:0;top:0;width:220px;height:220px"><b id="num">0</b><span>CC · V-TWIN</span></div>
+    <div class="ttl">Двигатель<br><em>800 кубов</em> тяги</div>
+  </div>
+  <div class="chips">
+    <div class="chip" id="c0">Полный привод <b>4×4</b></div>
+    <div class="chip" id="c1"><b>ЭУР</b> руля</div>
+    <div class="chip" id="c2">Блокировка <b>дифф.</b></div>
+  </div>
+</div></div>
+<script>
+const C=Math.PI*2*96, SWEEP=0.75; // 270deg arc
+const arc=document.getElementById('arc'), num=document.getElementById('num');
+const chips=[document.getElementById('c0'),document.getElementById('c1'),document.getElementById('c2')];
+arc.style.strokeDasharray=C;
+function ease(x){return 1-Math.pow(1-x,3)}
+function clamp(x){return Math.max(0,Math.min(1,x))}
+window.render=function(t){
+  // intro reveal 0..0.18
+  const rev=ease(clamp(t/0.18));
+  document.getElementById('wrap').style.opacity=rev;
+  document.getElementById('wrap').style.transform='translateY('+((1-rev)*40)+'px)';
+  // number+gauge count during 0.1..0.6
+  const g=ease(clamp((t-0.1)/0.5));
+  num.textContent=Math.round(800*g);
+  arc.style.strokeDashoffset=C*(1-SWEEP*g);
+  // chips stagger 0.35..0.8
+  chips.forEach((c,i)=>{const s=ease(clamp((t-(0.4+i*0.12))/0.18));
+    c.style.opacity=s; c.style.transform='translateY('+((1-s)*24)+'px)';});
+  // outro fade 0.9..1
+  const out=ease(clamp((t-0.9)/0.1));
+  document.getElementById('wrap').style.opacity=rev*(1-out);
+};
+window.render(0);
+</script></body></html>

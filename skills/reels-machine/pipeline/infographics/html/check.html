@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont9';src:url('../../../fonts/montserrat-v31-cyrillic_latin-900.ttf')}
+@font-face{font-family:'Man8';src:url('../../../fonts/manrope-v20-cyrillic_latin-800.ttf')}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;background:transparent;overflow:hidden}
+:root{--amber:#EA5920;--amber2:#FF7A3C;--ink:#0c0a08;--white:#F6F4F1}
+#card{position:absolute;left:70px;top:560px;width:940px;
+  background:linear-gradient(160deg,rgba(15,11,9,.86),rgba(23,15,11,.7));
+  border:2px solid rgba(234,89,32,.5);border-radius:34px;padding:44px 48px;
+  box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#h{font-family:'Mont9';color:var(--white);font-size:52px;margin-bottom:14px}
+#h em{color:var(--amber2);font-style:normal}
+.row{display:flex;align-items:center;gap:28px;padding:26px 0;border-top:1px solid rgba(255,255,255,.1)}
+.ic{flex:0 0 72px;width:72px;height:72px;border-radius:20px;background:rgba(234,89,32,.16);
+  border:2px solid var(--amber);display:flex;align-items:center;justify-content:center}
+.ic svg{width:40px;height:40px}
+.tx{font-family:'Man8';font-size:40px;color:var(--white);line-height:1.15}
+.tx small{display:block;font-size:28px;color:#b9b2ac;margin-top:4px}
+</style></head><body>
+<div id="card">
+  <div id="h">Уже <em>в цене</em></div>
+  <div class="row" data-i="0"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FF7A3C" stroke-width="3" stroke-linecap="round"><path d="M3 13h13V6H3zM16 9h3l2 3v1h-5z"/><circle cx="6.5" cy="17" r="2"/><circle cx="17.5" cy="17" r="2"/></svg></div><div class="tx">Доставка до вашего города<small>по всей России</small></div></div>
+  <div class="row" data-i="1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FF7A3C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><div class="tx">Электронный ПТС<small>оформлен на вас</small></div></div>
+  <div class="row" data-i="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FF7A3C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4z"/><path d="M9 13l2 2 4-4"/></svg></div><div class="tx">Полный пакет документов<small>на учёт в ГИБДД</small></div></div>
+</div>
+<script>
+const card=document.getElementById('card'), rows=[...document.querySelectorAll('.row')];
+function ease(x){return 1-Math.pow(1-x,3)} function clamp(x){return Math.max(0,Math.min(1,x))}
+window.render=function(t){
+  const rev=ease(clamp(t/0.14)), out=ease(clamp((t-0.92)/0.08));
+  card.style.opacity=rev*(1-out); card.style.transform='translateY('+((1-rev)*36)+'px)';
+  rows.forEach((r,i)=>{const s=ease(clamp((t-(0.2+i*0.16))/0.2));
+    r.style.opacity=0.2+0.8*s; r.style.transform='translateX('+((1-s)*40)+'px)';
+    r.querySelector('.ic').style.transform='scale('+(0.6+0.4*s)+')';});
+};
+window.render(0);
+</script></body></html>
