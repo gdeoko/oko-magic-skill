@@ -3,3 +3,6 @@ secrets.env.b64
 OKO_MASTER_VAULT.md
 secrets.env
 secrets.env.b64
+
+__pycache__/
+*.pyc
