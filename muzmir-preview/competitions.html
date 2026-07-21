@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<script>document.documentElement.className+=' js';</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Конкурсы — КЦ «Музыкальный Мир»</title>
+<meta name="description" content="Каталог международных и всероссийских онлайн-конкурсов и фестивалей культуры и искусства КЦ «Музыкальный Мир». Активные и завершённые конкурсы, подача заявок онлайн.">
+<meta name="theme-color" content="#FFFCF5">
+<meta property="og:title" content="Конкурсы — КЦ «Музыкальный Мир»">
+<meta property="og:description" content="Каталог международных и всероссийских онлайн-конкурсов и фестивалей культуры и искусства КЦ «Музыкальный Мир». Активные и завершённые конкурсы, подача заявок онлайн.">
+<meta property="og:image" content="/assets/img/logo_muzmir_main.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/logo_muzmir_256.png">
+<link rel="apple-touch-icon" href="assets/img/logo_muzmir_256.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="topbar"><div class="container">
+  <a href="tel:+79509459900">+7 (950) 945-99-00</a>
+  <span>Роскомнадзор №094084 от 24.06.2025</span>
+</div></div>
+
+<header class="header"><div class="container">
+  <a class="brand" href="index.html">
+    <img src="assets/img/logo_muzmir_256.png" alt="Логотип КЦ «Музыкальный Мир»">
+    <span>Музыкальный<br>Мир</span>
+  </a>
+  <nav class="nav" id="nav">
+          <a href="index.html" class="">Главная</a>
+          <a href="competitions.html" class="active">Конкурсы</a>
+          <a href="apply.html" class="">Подать заявку</a>
+          <a href="awards.html" class="">Награды</a>
+          <a href="concerts.html" class="">Концерты</a>
+          <a href="about.html" class="">О нас</a>
+          <a href="faq.html" class="">Вопросы</a>
+          <a href="contacts.html" class="">Контакты</a>
+        <div class="nav-cta-mobile">
+              <a class="btn btn--ghost" href="login.html">Войти</a>
+        <a class="btn btn--primary" href="apply.html">Подать заявку</a>
+          </div>
+  </nav>
+  <div class="nav-actions">
+          <a class="btn btn--ghost" href="login.html">Войти</a>
+      <a class="btn btn--primary" href="apply.html">Подать заявку</a>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+
+<main>
+<section class="section section--tint">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Каталог</p>
+      <h2>Конкурсы и фестивали</h2>
+      <div class="gold-rule"></div>
+      <p>Выберите конкурс, ознакомьтесь с положением и подайте заявку. Работы оценивает компетентное жюри, результаты приходят на Вашу почту.</p>
+    </div>
+
+    <form class="comp-filters reveal" method="get" action="competitions.html">
+      <div class="cf-chips" role="group" aria-label="Статус конкурса">
+                  <label class="cf-chip is-active">
+            <input type="radio" name="status" value="active" checked onchange="this.form.submit()">
+            <span>Активные</span>
+          </label>
+                  <label class="cf-chip">
+            <input type="radio" name="status" value="finished"  onchange="this.form.submit()">
+            <span>Завершённые</span>
+          </label>
+                  <label class="cf-chip">
+            <input type="radio" name="status" value="all"  onchange="this.form.submit()">
+            <span>Все</span>
+          </label>
+              </div>
+      <div class="cf-selects">
+        <label class="cf-select">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg>Тип</span>
+          <select name="type" onchange="this.form.submit()">
+                          <option value="all" selected>Все</option>
+                          <option value="international" >Международные</option>
+                          <option value="national" >Всероссийские</option>
+                      </select>
+        </label>
+        <label class="cf-select">
+          <span>Направленность</span>
+          <select name="dir" onchange="this.form.submit()">
+                          <option value="all" selected>Любая</option>
+                          <option value="multi" >Многожанровые</option>
+                          <option value="patriotic" >Патриотические</option>
+                          <option value="thematic" >Тематические</option>
+                      </select>
+        </label>
+        <label class="cf-select">
+          <span>Сортировка</span>
+          <select name="sort" onchange="this.form.submit()">
+                          <option value="default" selected>По порядку</option>
+                          <option value="soon" >Скоро завершатся</option>
+                          <option value="name" >По названию</option>
+                      </select>
+        </label>
+        <noscript><button class="btn btn--ghost" type="submit">Показать</button></noscript>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+          <p class="cf-count reveal">11 конкурсов</p>
+      <div class="grid grid-3">
+                  <a class="card comp-card reveal" href="competition-simfoniya-zvyozd.html">
+            <div class="cc-cover">
+                              Симфония Звёзд                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Международный</span>
+              </div>
+              <h3 style="margin-top:12px">Симфония Звёзд</h3>
+              <div class="cc-meta">
+                <span>Многожанровый</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-vershina-masterstva.html">
+            <div class="cc-cover">
+                              Вершина Мастерства                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Международный</span>
+              </div>
+              <h3 style="margin-top:12px">Вершина Мастерства</h3>
+              <div class="cc-meta">
+                <span>Многожанровый</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-mirovaya-scena.html">
+            <div class="cc-cover">
+                              Мировая Сцена                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Международный</span>
+              </div>
+              <h3 style="margin-top:12px">Мировая Сцена</h3>
+              <div class="cc-meta">
+                <span>Многожанровый</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-slava-rossii.html">
+            <div class="cc-cover">
+                              Слава России                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Всероссийский</span>
+              </div>
+              <h3 style="margin-top:12px">Слава России</h3>
+              <div class="cc-meta">
+                <span>Патриотический</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-profi.html">
+            <div class="cc-cover">
+                              Профи                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Международный</span>
+              </div>
+              <h3 style="margin-top:12px">Профи</h3>
+              <div class="cc-meta">
+                <span>Тематический</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-evrika.html">
+            <div class="cc-cover">
+                              Эврика                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Международный</span>
+              </div>
+              <h3 style="margin-top:12px">Эврика</h3>
+              <div class="cc-meta">
+                <span>Многожанровый</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-buduschee-rossii.html">
+            <div class="cc-cover">
+                              Будущее России                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Всероссийский</span>
+              </div>
+              <h3 style="margin-top:12px">Будущее России</h3>
+              <div class="cc-meta">
+                <span>Патриотический</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-atlanty-iskusstva.html">
+            <div class="cc-cover">
+                              Атланты Искусства                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Международный</span>
+              </div>
+              <h3 style="margin-top:12px">Атланты Искусства</h3>
+              <div class="cc-meta">
+                <span>Многожанровый</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-den-pobedy.html">
+            <div class="cc-cover">
+                              День Победы                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Всероссийский</span>
+              </div>
+              <h3 style="margin-top:12px">День Победы</h3>
+              <div class="cc-meta">
+                <span>Патриотический</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-grani-talanta.html">
+            <div class="cc-cover">
+                              Грани Таланта                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Международный</span>
+              </div>
+              <h3 style="margin-top:12px">Грани Таланта</h3>
+              <div class="cc-meta">
+                <span>Многожанровый</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+                  <a class="card comp-card reveal" href="competition-tvorchestvo-bez-granic.html">
+            <div class="cc-cover">
+                              Творчество без Границ                          </div>
+            <div class="cc-body">
+              <div class="cc-badges">
+                <span class="badge badge--open">Приём открыт</span>
+                <span class="badge badge--intl">Международный</span>
+              </div>
+              <h3 style="margin-top:12px">Творчество без Границ</h3>
+              <div class="cc-meta">
+                <span>Многожанровый</span>
+                                              </div>
+              <span class="btn btn--ghost btn--block">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+              </div>
+      </div>
+</section>
+
+<style>
+.comp-filters{display:flex;flex-direction:column;gap:18px;margin-top:8px}
+.cf-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.cf-chip{position:relative;cursor:pointer}
+.cf-chip input{position:absolute;opacity:0;width:0;height:0}
+.cf-chip span{display:inline-block;padding:9px 20px;border-radius:999px;border:1.5px solid var(--gold);
+  background:rgba(255,255,255,.7);color:var(--gold-dark);font-weight:700;font-size:.92rem;transition:background .18s,color .18s,transform .18s}
+.cf-chip:hover span{transform:translateY(-2px)}
+.cf-chip.is-active span{background:var(--grad-gold);color:#fff;border-color:transparent;box-shadow:var(--shadow-btn)}
+.cf-selects{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.cf-select{display:flex;flex-direction:column;gap:6px;min-width:190px}
+.cf-select>span{display:flex;align-items:center;gap:7px;font-size:.82rem;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.cf-select>span svg{width:16px;height:16px;color:var(--gold-dark)}
+.cc-badges{display:flex;flex-wrap:wrap;gap:8px}
+.cf-count{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+</style>
+</main>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo_muzmir_256.png" alt="Логотип">
+      <p>Культурный центр «Музыкальный Мир»</p>
+      <p style="opacity:.7;font-size:.85rem">Роскомнадзор №094084 от 24.06.2025</p>
+    </div>
+    <div>
+      <h4>Разделы</h4>
+      <ul>
+                  <li><a href="competitions.html">Конкурсы</a></li>
+                  <li><a href="apply.html">Подать заявку</a></li>
+                  <li><a href="awards.html">Награды</a></li>
+                  <li><a href="concerts.html">Концерты</a></li>
+                  <li><a href="about.html">О нас</a></li>
+              </ul>
+    </div>
+    <div>
+      <h4>Информация</h4>
+      <ul>
+        <li><a href="goals.html">Цели и задачи</a></li>
+        <li><a href="ministry-support.html">Поддержка министерства</a></li>
+        <li><a href="faq.html">Вопросы и ответы</a></li>
+        <li><a href="agreement.html">Пользовательское соглашение</a></li>
+        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <ul>
+        <li>109240, г. Москва, ул. Солянка, д.14, стр.7</li>
+        <li><a href="tel:+79509459900">+7 (950) 945-99-00</a></li>
+        <li><a href="mailto:kulturniy.centr.mir@mail.ru">kulturniy.centr.mir@mail.ru</a></li>
+        <li>Пн-Пт 09:00-18:00, Сб 10:00-16:00, Вс выходной</li>
+        <li><a href="https://vk.com/music_world.online" target="_blank" rel="noopener">ВКонтакте</a> · <a href="https://t.me/kc_mus_mir" target="_blank" rel="noopener">Telegram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-partners">
+          <a href="https://culture.gov.ru" target="_blank" rel="noopener" title="Минкультуры РФ"><img src="assets/img/emblem_minkultury_rf.webp" alt="Минкультуры РФ" loading="lazy"></a>
+          <a href="https://minobrnauki.gov.ru" target="_blank" rel="noopener" title="Минобрнауки РФ"><img src="assets/img/emblem_minobrazovaniya.webp" alt="Минобрнауки РФ" loading="lazy"></a>
+          <a href="https://rkn.gov.ru" target="_blank" rel="noopener" title="Роскомнадзор"><img src="assets/img/emblem_roskomnadzor.webp" alt="Роскомнадзор" loading="lazy"></a>
+          <a href="https://pro.culture.ru" target="_blank" rel="noopener" title="PROКультура.РФ"><img src="assets/img/prokultura_full_horizontal.webp" alt="PROКультура.РФ" loading="lazy"></a>
+          <a href="https://национальныепроекты.рф" target="_blank" rel="noopener" title="Нацпроекты «Культура»"><img src="assets/img/natsproekty_kultura.webp" alt="Нацпроекты «Культура»" loading="lazy"></a>
+      </div>
+  <div class="footer-bottom">
+    <span>© 2026 Культурный центр «Музыкальный Мир»</span>
+    <span>При информационной поддержке Министерств культуры и образования субъектов Российской Федерации</span>
+  </div>
+</div></footer>
+
+<button class="chat-fab" id="chatFab" aria-label="Поддержка">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>
+</button>
+
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

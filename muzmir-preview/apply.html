@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<script>document.documentElement.className+=' js';</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Подать заявку — КЦ «Музыкальный Мир»</title>
+<meta name="description" content="Подача заявки на конкурсы КЦ «Музыкальный Мир». Умная форма с проверками: участник, номинация, ссылка на выступление, контакты.">
+<meta name="theme-color" content="#FFFCF5">
+<meta property="og:title" content="Подать заявку — КЦ «Музыкальный Мир»">
+<meta property="og:description" content="Подача заявки на конкурсы КЦ «Музыкальный Мир». Умная форма с проверками: участник, номинация, ссылка на выступление, контакты.">
+<meta property="og:image" content="/assets/img/logo_muzmir_main.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/logo_muzmir_256.png">
+<link rel="apple-touch-icon" href="assets/img/logo_muzmir_256.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="topbar"><div class="container">
+  <a href="tel:+79509459900">+7 (950) 945-99-00</a>
+  <span>Роскомнадзор №094084 от 24.06.2025</span>
+</div></div>
+
+<header class="header"><div class="container">
+  <a class="brand" href="index.html">
+    <img src="assets/img/logo_muzmir_256.png" alt="Логотип КЦ «Музыкальный Мир»">
+    <span>Музыкальный<br>Мир</span>
+  </a>
+  <nav class="nav" id="nav">
+          <a href="index.html" class="">Главная</a>
+          <a href="competitions.html" class="">Конкурсы</a>
+          <a href="apply.html" class="active">Подать заявку</a>
+          <a href="awards.html" class="">Награды</a>
+          <a href="concerts.html" class="">Концерты</a>
+          <a href="about.html" class="">О нас</a>
+          <a href="faq.html" class="">Вопросы</a>
+          <a href="contacts.html" class="">Контакты</a>
+        <div class="nav-cta-mobile">
+              <a class="btn btn--ghost" href="login.html">Войти</a>
+        <a class="btn btn--primary" href="apply.html">Подать заявку</a>
+          </div>
+  </nav>
+  <div class="nav-actions">
+          <a class="btn btn--ghost" href="login.html">Войти</a>
+      <a class="btn btn--primary" href="apply.html">Подать заявку</a>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+
+<main>
+<style>
+/* Локальные стили формы заявки (глобальный style.css не трогаем) */
+.apply-wrap{max-width:760px;margin:0 auto}
+.apply-progress{display:flex;align-items:flex-start;justify-content:space-between;gap:4px;margin:8px 0 34px;position:relative}
+.apply-progress::before{content:"";position:absolute;left:20px;right:20px;top:17px;height:2px;background:var(--line);z-index:0}
+.ap-node{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;min-width:0}
+.ap-dot{width:36px;height:36px;border-radius:50%;background:#fff;border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700;font-size:.9rem;transition:.25s}
+.ap-dot svg{width:18px;height:18px}
+.ap-node.done .ap-dot{background:var(--grad-gold);border-color:transparent;color:#fff;box-shadow:var(--shadow-btn)}
+.ap-node.active .ap-dot{background:#fff;border-color:var(--gold);color:var(--gold-dark);box-shadow:0 0 0 4px rgba(201,168,76,.15)}
+.ap-label{font-size:.72rem;color:var(--muted);text-align:center;line-height:1.2}
+.ap-node.active .ap-label,.ap-node.done .ap-label{color:var(--gold-dark);font-weight:600}
+@media(max-width:640px){.ap-label{display:none}.apply-progress::before{top:17px}}
+
+.apply-card{padding:30px 30px 26px}
+@media(max-width:560px){.apply-card{padding:22px 18px}}
+.astep{display:none;animation:apIn .35s ease}
+.astep.active{display:block}
+@keyframes apIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.astep-head{margin-bottom:20px}
+.astep-head .eyebrow{margin-bottom:6px}
+.astep-head h2{font-size:1.5rem;margin:0}
+
+.comp-list{display:grid;gap:12px}
+.comp-opt{display:block;cursor:pointer}
+.comp-opt input{position:absolute;opacity:0;pointer-events:none}
+.comp-opt .co-body{border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px;
+  display:flex;align-items:center;gap:14px;transition:.2s;background:#fff}
+.comp-opt:hover .co-body{border-color:var(--gold);box-shadow:var(--shadow-card)}
+.comp-opt input:checked + .co-body{border-color:var(--gold);background:var(--gold-light);box-shadow:0 0 0 3px rgba(201,168,76,.14)}
+.co-mark{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);flex:0 0 auto;position:relative;transition:.2s}
+.comp-opt input:checked + .co-body .co-mark{border-color:var(--gold);background:var(--grad-gold)}
+.comp-opt input:checked + .co-body .co-mark::after{content:"";position:absolute;left:6px;top:6px;width:8px;height:8px;border-radius:50%;background:#fff}
+.co-main{flex:1;min-width:0}
+.co-main b{display:block;font-family:var(--ff-head);font-size:1.08rem;color:var(--navy)}
+.co-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+
+.seg{display:flex;gap:0;border:1.5px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:18px}
+.seg label{flex:1;text-align:center;padding:12px;cursor:pointer;font-weight:600;color:var(--muted);transition:.18s;position:relative}
+.seg label input{position:absolute;opacity:0}
+.seg label.on{background:var(--gold-light);color:var(--gold-dark)}
+.grid-2c{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+@media(max-width:560px){.grid-2c{grid-template-columns:1fr}}
+
+.astep-nav{display:flex;gap:12px;margin-top:26px}
+.astep-nav .btn{flex:1}
+.astep-nav .back{flex:0 0 auto;min-width:52px}
+
+.plat-live{font-size:.84rem;margin-top:6px;display:none;font-weight:600}
+.plat-live.ok{display:block;color:#3f7a4a}
+.plat-live.bad{display:block;color:var(--error)}
+
+.summary{border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--cream);padding:6px 18px;margin-bottom:20px}
+.summary .row{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.summary .row:last-child{border-bottom:none}
+.summary .row span:first-child{color:var(--muted)}
+.summary .row span:last-child{font-weight:600;text-align:right;color:var(--navy)}
+
+.consent-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.consent-row input[type=checkbox]{width:22px;height:22px;flex:0 0 auto;margin-top:2px;accent-color:var(--gold-dark);cursor:pointer}
+.consent-row.locked{opacity:.55}
+.consent-row label{font-size:.92rem;line-height:1.45;cursor:pointer}
+.consent-note{font-size:.84rem;color:var(--muted);background:var(--gold-light);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:18px}
+.consent-note b{color:var(--gold-dark)}
+.timer-badge{display:inline-block;min-width:26px;text-align:center;font-weight:700;color:var(--gold-dark)}
+
+.pay-box{text-align:center;padding:14px 0}
+.pay-amount{font-family:var(--ff-head);font-size:2.4rem;color:var(--gold-dark);margin:6px 0}
+
+.done-box{text-align:center;padding:16px 0}
+.done-ic{width:82px;height:82px;margin:0 auto 16px;border-radius:50%;background:var(--gold-light);
+  display:flex;align-items:center;justify-content:center;color:var(--gold-dark)}
+.done-ic svg{width:44px;height:44px}
+.done-number{display:inline-block;font-family:var(--ff-head);font-size:1.6rem;letter-spacing:.05em;color:var(--navy);
+  background:#fff;border:1.5px dashed var(--gold);border-radius:var(--radius-sm);padding:10px 22px;margin:10px 0}
+
+/* honeypot — скрыт для людей, виден ботам */
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+</style>
+
+<section class="section section--parchment">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:28px">
+      <p class="eyebrow">Приём заявок</p>
+      <h2>Подача заявки на конкурс</h2>
+      <p>Заполните форму по шагам. Проверки помогут внести данные без ошибок. Черновик сохраняется автоматически.</p>
+    </div>
+
+    <div class="apply-wrap reveal">
+    
+      <!-- Прогресс-бар -->
+      <div class="apply-progress" id="apProgress">
+                  <div class="ap-node" data-node="comp">
+            <div class="ap-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+            <div class="ap-label">Конкурс</div>
+          </div>
+                  <div class="ap-node" data-node="user">
+            <div class="ap-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div>
+            <div class="ap-label">Участник</div>
+          </div>
+                  <div class="ap-node" data-node="teacher">
+            <div class="ap-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></div>
+            <div class="ap-label">Педагог</div>
+          </div>
+                  <div class="ap-node" data-node="number">
+            <div class="ap-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+            <div class="ap-label">Номер</div>
+          </div>
+                  <div class="ap-node" data-node="contact">
+            <div class="ap-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg></div>
+            <div class="ap-label">Контакты</div>
+          </div>
+                  <div class="ap-node" data-node="consent">
+            <div class="ap-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg></div>
+            <div class="ap-label">Согласие</div>
+          </div>
+                  <div class="ap-node" data-node="pay">
+            <div class="ap-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+            <div class="ap-label">Оплата</div>
+          </div>
+                  <div class="ap-node" data-node="done">
+            <div class="ap-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></div>
+            <div class="ap-label">Готово</div>
+          </div>
+              </div>
+
+      <form class="card apply-card" id="applyForm" novalidate autocomplete="on">
+        <input type="hidden" name="_csrf" value="f01bf4d9d82256009317885291be68e9">        <!-- honeypot -->
+        <div class="hp-field" aria-hidden="true">
+          <label>Не заполняйте это поле<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <!-- ШАГ 1. Выбор конкурса -->
+        <section class="astep active" data-step="comp">
+          <div class="astep-head"><p class="eyebrow">Шаг 1</p><h2>Выберите конкурс</h2></div>
+          <div class="comp-list">
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="1"
+                  data-slug="simfoniya-zvyozd" data-name="Симфония Звёзд"
+                  data-paid="1" data-price="900"
+                  data-reg="/competition/simfoniya-zvyozd" data-code="SZ"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Симфония Звёзд</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Международный</span>
+                      <span class="badge badge--closed">Платный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="2"
+                  data-slug="vershina-masterstva" data-name="Вершина Мастерства"
+                  data-paid="1" data-price="900"
+                  data-reg="/competition/vershina-masterstva" data-code="VM"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Вершина Мастерства</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Международный</span>
+                      <span class="badge badge--closed">Платный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="3"
+                  data-slug="mirovaya-scena" data-name="Мировая Сцена"
+                  data-paid="1" data-price="1000"
+                  data-reg="/competition/mirovaya-scena" data-code="MC"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Мировая Сцена</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Международный</span>
+                      <span class="badge badge--closed">Платный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="4"
+                  data-slug="slava-rossii" data-name="Слава России"
+                  data-paid="0" data-price="0"
+                  data-reg="/competition/slava-rossii" data-code="SR"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Слава России</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Всероссийский</span>
+                      <span class="badge badge--open">Бесплатный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="5"
+                  data-slug="profi" data-name="Профи"
+                  data-paid="1" data-price="1200"
+                  data-reg="/competition/profi" data-code="PR"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Профи</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Международный</span>
+                      <span class="badge badge--closed">Платный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="6"
+                  data-slug="evrika" data-name="Эврика"
+                  data-paid="1" data-price="1000"
+                  data-reg="/competition/evrika" data-code="EV"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Эврика</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Международный</span>
+                      <span class="badge badge--closed">Платный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="7"
+                  data-slug="buduschee-rossii" data-name="Будущее России"
+                  data-paid="0" data-price="0"
+                  data-reg="/competition/buduschee-rossii" data-code="BR"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Будущее России</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Всероссийский</span>
+                      <span class="badge badge--open">Бесплатный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="8"
+                  data-slug="atlanty-iskusstva" data-name="Атланты Искусства"
+                  data-paid="1" data-price="900"
+                  data-reg="/competition/atlanty-iskusstva" data-code="AI"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Атланты Искусства</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Международный</span>
+                      <span class="badge badge--closed">Платный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="9"
+                  data-slug="den-pobedy" data-name="День Победы"
+                  data-paid="0" data-price="0"
+                  data-reg="/competition/den-pobedy" data-code="DP"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>День Победы</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Всероссийский</span>
+                      <span class="badge badge--open">Бесплатный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="10"
+                  data-slug="grani-talanta" data-name="Грани Таланта"
+                  data-paid="1" data-price="900"
+                  data-reg="/competition/grani-talanta" data-code="GT"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Грани Таланта</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Международный</span>
+                      <span class="badge badge--closed">Платный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                          <label class="comp-opt">
+                <input type="radio" name="competition_id" value="11"
+                  data-slug="tvorchestvo-bez-granic" data-name="Творчество без Границ"
+                  data-paid="1" data-price="900"
+                  data-reg="/competition/tvorchestvo-bez-granic" data-code="TG"
+                  >
+                <span class="co-body">
+                  <span class="co-mark"></span>
+                  <span class="co-main">
+                    <b>Творчество без Границ</b>
+                    <span class="co-tags">
+                      <span class="badge badge--intl">Международный</span>
+                      <span class="badge badge--closed">Платный</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+                      </div>
+          <div class="astep-nav">
+            <button type="button" class="btn btn--primary" data-next>Продолжить</button>
+          </div>
+        </section>
+
+        <!-- ШАГ 2. Участник / коллектив -->
+        <section class="astep" data-step="user">
+          <div class="astep-head"><p class="eyebrow">Шаг 2</p><h2>Данные участника</h2></div>
+          <div class="seg" id="formTypeSeg">
+            <label class="on"><input type="radio" name="is_group" value="0" checked>Солист</label>
+            <label><input type="radio" name="is_group" value="1">Коллектив</label>
+          </div>
+
+          <div class="field" data-when="group" style="display:none">
+            <label for="group_name">Название коллектива</label>
+            <input type="text" id="group_name" name="group_name" placeholder="Образцовый ансамбль «Родник»">
+            <div class="err-msg">Укажите название коллектива.</div>
+          </div>
+          <div class="field">
+            <label for="full_name" id="fnLabel">Фамилия, имя, отчество участника</label>
+            <input type="text" id="full_name" name="full_name" placeholder="Иванова Мария Петровна" data-fio required>
+            <div class="hint">Регистр поправится автоматически.</div>
+            <div class="err-msg">Укажите ФИО участника.</div>
+          </div>
+          <div class="grid-2c">
+            <div class="field" data-when="solo">
+              <label for="birth_date">Дата рождения</label>
+              <input type="date" id="birth_date" name="birth_date" max="2026-07-21">
+              <div class="err-msg">Укажите дату рождения.</div>
+            </div>
+            <div class="field">
+              <label for="age_category">Возрастная категория</label>
+              <select id="age_category" name="age_category" required>
+                <option value="">Выберите категорию</option>
+                <option value="До 6 лет">До 6 лет</option><option value="7-8 лет">7-8 лет</option><option value="9-10 лет">9-10 лет</option><option value="11-12 лет">11-12 лет</option><option value="13-15 лет">13-15 лет</option><option value="16-18 лет">16-18 лет</option><option value="19-25 лет">19-25 лет</option><option value="26-45 лет">26-45 лет</option><option value="46+ лет">46+ лет</option><option value="Смешанная">Смешанная</option><option value="Профессионалы">Профессионалы</option>              </select>
+              <div class="hint" data-age-hint></div>
+              <div class="err-msg">Выберите возрастную категорию.</div>
+            </div>
+          </div>
+          <div class="astep-nav">
+            <button type="button" class="btn btn--ghost back" data-back aria-label="Назад">Назад</button>
+            <button type="button" class="btn btn--primary" data-next>Продолжить</button>
+          </div>
+        </section>
+
+        <!-- ШАГ 3. Педагог и учреждение -->
+        <section class="astep" data-step="teacher">
+          <div class="astep-head"><p class="eyebrow">Шаг 3</p><h2>Педагог и учреждение</h2></div>
+          <div class="field">
+            <label for="teacher">ФИО руководителя или педагога</label>
+            <input type="text" id="teacher" name="teacher" placeholder="Смирнов Алексей Иванович" data-fio>
+            <div class="hint">Как указать в дипломе руководителя. Можно оставить пустым.</div>
+          </div>
+          <div class="field">
+            <label for="institution">Учреждение</label>
+            <input type="text" id="institution" name="institution" placeholder="Детская школа искусств №1">
+          </div>
+          <div class="field">
+            <label for="city">Населённый пункт</label>
+            <input type="text" id="city" name="city" placeholder="г. Москва" required>
+            <div class="err-msg">Укажите город или населённый пункт.</div>
+          </div>
+          <div class="astep-nav">
+            <button type="button" class="btn btn--ghost back" data-back>Назад</button>
+            <button type="button" class="btn btn--primary" data-next>Продолжить</button>
+          </div>
+        </section>
+
+        <!-- ШАГ 4. Конкурсный номер -->
+        <section class="astep" data-step="number">
+          <div class="astep-head"><p class="eyebrow">Шаг 4</p><h2>Конкурсный номер</h2></div>
+          <div class="field">
+            <label for="nomination">Номинация</label>
+            <select id="nomination" name="nomination" required>
+              <option value="">Выберите номинацию</option>
+              <option value="Вокальное искусство">Вокальное искусство</option><option value="Инструментальное исполнительство">Инструментальное исполнительство</option><option value="Театральное искусство">Театральное искусство</option><option value="Художественное слово">Художественное слово</option><option value="Хореография">Хореография</option><option value="Изобразительное искусство">Изобразительное искусство</option><option value="Декоративно-прикладное искусство">Декоративно-прикладное искусство</option><option value="Фото- и видеоискусство">Фото- и видеоискусство</option><option value="Цирковое искусство">Цирковое искусство</option><option value="Иные номинации">Иные номинации</option>            </select>
+            <div class="err-msg">Выберите номинацию.</div>
+          </div>
+          <div class="field" id="subgroupField" style="display:none">
+            <label for="subgroup">Подраздел</label>
+            <select id="subgroup" name="subgroup">
+              <option value="">Выберите подраздел</option>
+            </select>
+            <div class="err-msg">Выберите подраздел.</div>
+          </div>
+          <div class="field">
+            <label for="formation">Форма исполнения</label>
+            <select id="formation" name="formation" required>
+              <option value="">Выберите форму</option>
+              <option value="Соло">Соло</option><option value="Дуэт">Дуэт</option><option value="Ансамбль">Ансамбль</option><option value="Хор">Хор</option>            </select>
+            <div class="err-msg">Выберите форму исполнения.</div>
+          </div>
+          <div class="field">
+            <label for="work_title">Название номера или работы</label>
+            <input type="text" id="work_title" name="work_title" placeholder="Романс «Утро»" data-title required>
+            <div class="hint">Кавычки заменятся на «ёлочки» автоматически.</div>
+            <div class="err-msg">Укажите название номера.</div>
+          </div>
+          <div class="field">
+            <label for="video_url">Ссылка на выступление или работу</label>
+            <input type="url" id="video_url" name="video_url" placeholder="https://rutube.ru/video/..." data-video>
+            <input type="hidden" name="video_platform" id="video_platform">
+            <div class="hint">RuTube, Яндекс Диск, Google Диск, Cloud Mail, VK, ОК, Дзен. Ссылка должна быть открыта для просмотра.</div>
+            <div class="plat-live" data-plat-live></div>
+            <div class="err-msg">Проверьте ссылку на выступление.</div>
+          </div>
+          <div class="astep-nav">
+            <button type="button" class="btn btn--ghost back" data-back>Назад</button>
+            <button type="button" class="btn btn--primary" data-next>Продолжить</button>
+          </div>
+        </section>
+
+        <!-- ШАГ 5. Контакты и адрес -->
+        <section class="astep" data-step="contact">
+          <div class="astep-head"><p class="eyebrow">Шаг 5</p><h2>Контакты и доставка</h2></div>
+          <div class="grid-2c">
+            <div class="field">
+              <label for="email">Электронная почта</label>
+              <input type="email" id="email" name="email" placeholder="mail@example.ru" required>
+              <div class="hint">На неё придут дипломы и результаты.</div>
+              <div class="err-msg">Укажите корректную электронную почту.</div>
+            </div>
+            <div class="field">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" data-phone required>
+              <div class="err-msg">Укажите телефон в формате +7 (___) ___-__-__.</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="address">Адрес доставки оригиналов</label>
+            <input type="text" id="address" name="address" placeholder="г. Москва, ул. Солянка, д.14, кв.7">
+            <div class="hint">Нужен только для оригиналов наградных материалов. Дипломы приходят на почту.</div>
+          </div>
+          <div class="field" style="max-width:220px">
+            <label for="postal_index">Почтовый индекс</label>
+            <input type="text" id="postal_index" name="postal_index" placeholder="109240" inputmode="numeric" maxlength="6">
+          </div>
+          <div class="astep-nav">
+            <button type="button" class="btn btn--ghost back" data-back>Назад</button>
+            <button type="button" class="btn btn--primary" data-next>Продолжить</button>
+          </div>
+        </section>
+
+        <!-- ШАГ 6. Согласие -->
+        <section class="astep" data-step="consent">
+          <div class="astep-head"><p class="eyebrow">Шаг 6</p><h2>Проверка и согласие</h2></div>
+
+          <div class="summary" id="applySummary"></div>
+
+          <div class="consent-note">
+            Ознакомьтесь с положением конкурса.
+            <a href="#" target="_blank" rel="noopener" id="regLink" data-reg-link>Открыть положение</a>.
+            Отметка станет доступна через <span class="timer-badge" data-timer>15</span> секунд после открытия.
+          </div>
+
+          <div class="consent-row locked" id="agreeRegRow">
+            <input type="checkbox" id="agree_reg" name="agree_reg" value="1" disabled>
+            <label for="agree_reg">Я ознакомился с положением конкурса и принимаю его условия.</label>
+          </div>
+          <div class="consent-row">
+            <input type="checkbox" id="agree_pd" name="agree_pd" value="1">
+            <label for="agree_pd">Я согласен на обработку персональных данных согласно
+              <a href="privacy.html" target="_blank" rel="noopener">Политике конфиденциальности</a>
+              и принимаю <a href="agreement.html" target="_blank" rel="noopener">Пользовательское соглашение</a>.</label>
+          </div>
+
+          <div class="astep-nav">
+            <button type="button" class="btn btn--ghost back" data-back>Назад</button>
+            <button type="button" class="btn btn--primary" data-next id="consentNext" disabled>Продолжить</button>
+          </div>
+        </section>
+
+        <!-- ШАГ 7. Оплата (только для платного конкурса) -->
+        <section class="astep" data-step="pay">
+          <div class="astep-head"><p class="eyebrow">Шаг 7</p><h2>Оплата участия</h2></div>
+          <div class="pay-box">
+            <p style="color:var(--muted)">Организационный взнос за участие</p>
+            <div class="pay-amount" data-pay-amount>-</div>
+            <p style="color:var(--muted);max-width:460px;margin:0 auto 8px">
+              Оплата оргвзноса пройдёт онлайн через защищённую форму ЮKassa сразу после отправки заявки.
+              Постоянным участникам начисляется скидка за число участий, а по промокоду педагога Вы
+              получаете дополнительную скидку.</p>
+          </div>
+          <div class="field" style="max-width:320px;margin:0 auto 6px">
+            <label for="promo_code">Промокод педагога (если есть)</label>
+            <input type="text" id="promo_code" name="promo_code" placeholder="Например, ABCD1234"
+              autocomplete="off" maxlength="16" style="text-transform:uppercase">
+            <div class="hint">Даёт дополнительную скидку на оргвзнос. Можно оставить пустым.</div>
+          </div>
+          <div class="astep-nav">
+            <button type="button" class="btn btn--ghost back" data-back>Назад</button>
+            <button type="submit" class="btn btn--primary" data-submit>Перейти к оплате</button>
+          </div>
+        </section>
+
+        <!-- Кнопка отправки для бесплатного конкурса (без шага оплаты) -->
+        <div class="astep" data-step="submit-free">
+          <div class="astep-nav">
+            <button type="button" class="btn btn--ghost back" data-back>Назад</button>
+            <button type="submit" class="btn btn--primary" data-submit>Отправить заявку</button>
+          </div>
+        </div>
+
+        <!-- ШАГ 8. Готово -->
+        <section class="astep" data-step="done">
+          <div class="done-box">
+            <div class="done-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></div>
+            <h2>Заявка принята</h2>
+            <p style="color:var(--muted)">Номер Вашей заявки</p>
+            <div class="done-number" data-app-number>-</div>
+            <p style="color:var(--muted);max-width:460px;margin:12px auto 0">
+              Подтверждение направлено на Вашу электронную почту. Следить за статусом можно в
+              <a href="/cabinet">личном кабинете</a>.</p>
+            <div style="margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <a class="btn btn--ghost" href="competitions.html">К конкурсам</a>
+              <a class="btn btn--primary" href="index.html">На главную</a>
+            </div>
+          </div>
+        </section>
+
+        <div class="err-msg" id="applyFormError" style="margin-top:14px;text-align:center"></div>
+      </form>
+        </div>
+  </div>
+</section>
+
+<script>window.APPLY_CONFIG = {"apiUrl":"/api/v1/apply","privacy":"/privacy","agreement":"/agreement","consentDelay":15,"nominations":{"Вокальное искусство":["Эстрадный вокал","Академический вокал","Народный вокал","Джазовый вокал"],"Инструментальное исполнительство":["Фортепиано","Струнные","Духовые","Народные инструменты","Ударные"],"Театральное искусство":["Драматический театр","Музыкальный театр","Театр кукол"],"Художественное слово":["Проза","Поэзия","Авторское произведение"],"Хореография":["Классический танец","Народный танец","Эстрадный танец","Современный танец","Бальный танец"],"Изобразительное искусство":["Живопись","Графика","Скульптура"],"Декоративно-прикладное искусство":["Керамика","Роспись","Резьба","Текстиль","Иное"],"Фото- и видеоискусство":["Фотография","Видеоарт","Клип","Короткий метр"],"Цирковое искусство":["Акробатика","Гимнастика","Жонглирование","Клоунада","Иллюзия","Дрессура"],"Иные номинации":[]},"allowed":{"rutube.ru":"RuTube","disk.yandex.ru":"Яндекс Диск","yadi.sk":"Яндекс Диск","drive.google.com":"Google Диск","cloud.mail.ru":"Cloud Mail","vk.com":"VK Видео","vkvideo.ru":"VK Видео","ok.ru":"ОК Видео","dzen.ru":"Дзен Видео"},"blocked":["youtube.com","youtu.be","instagram.com","facebook.com","fb.watch","tiktok.com"]};</script>
+<script>
+/* Редирект на онлайн-оплату: если ответ формы заявки содержит confirmation_url ЮKassa. */
+(function () {
+  var CFG = window.APPLY_CONFIG || {};
+  if (!CFG.apiUrl || !window.fetch) return;
+  var _fetch = window.fetch;
+  window.fetch = function (url, opts) {
+    var res = _fetch.apply(this, arguments);
+    var u = (typeof url === 'string') ? url : (url && url.url) || '';
+    if (u && u.indexOf(CFG.apiUrl) === 0) {
+      return res.then(function (r) {
+        try {
+          r.clone().json().then(function (d) {
+            if (d && d.confirmation_url) window.location.href = d.confirmation_url;
+          }).catch(function () {});
+        } catch (e) {}
+        return r;
+      });
+    }
+    return res;
+  };
+})();
+</script>
+<script src="assets/js/apply.js" defer></script>
+</main>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo_muzmir_256.png" alt="Логотип">
+      <p>Культурный центр «Музыкальный Мир»</p>
+      <p style="opacity:.7;font-size:.85rem">Роскомнадзор №094084 от 24.06.2025</p>
+    </div>
+    <div>
+      <h4>Разделы</h4>
+      <ul>
+                  <li><a href="competitions.html">Конкурсы</a></li>
+                  <li><a href="apply.html">Подать заявку</a></li>
+                  <li><a href="awards.html">Награды</a></li>
+                  <li><a href="concerts.html">Концерты</a></li>
+                  <li><a href="about.html">О нас</a></li>
+              </ul>
+    </div>
+    <div>
+      <h4>Информация</h4>
+      <ul>
+        <li><a href="goals.html">Цели и задачи</a></li>
+        <li><a href="ministry-support.html">Поддержка министерства</a></li>
+        <li><a href="faq.html">Вопросы и ответы</a></li>
+        <li><a href="agreement.html">Пользовательское соглашение</a></li>
+        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <ul>
+        <li>109240, г. Москва, ул. Солянка, д.14, стр.7</li>
+        <li><a href="tel:+79509459900">+7 (950) 945-99-00</a></li>
+        <li><a href="mailto:kulturniy.centr.mir@mail.ru">kulturniy.centr.mir@mail.ru</a></li>
+        <li>Пн-Пт 09:00-18:00, Сб 10:00-16:00, Вс выходной</li>
+        <li><a href="https://vk.com/music_world.online" target="_blank" rel="noopener">ВКонтакте</a> · <a href="https://t.me/kc_mus_mir" target="_blank" rel="noopener">Telegram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-partners">
+          <a href="https://culture.gov.ru" target="_blank" rel="noopener" title="Минкультуры РФ"><img src="assets/img/emblem_minkultury_rf.webp" alt="Минкультуры РФ" loading="lazy"></a>
+          <a href="https://minobrnauki.gov.ru" target="_blank" rel="noopener" title="Минобрнауки РФ"><img src="assets/img/emblem_minobrazovaniya.webp" alt="Минобрнауки РФ" loading="lazy"></a>
+          <a href="https://rkn.gov.ru" target="_blank" rel="noopener" title="Роскомнадзор"><img src="assets/img/emblem_roskomnadzor.webp" alt="Роскомнадзор" loading="lazy"></a>
+          <a href="https://pro.culture.ru" target="_blank" rel="noopener" title="PROКультура.РФ"><img src="assets/img/prokultura_full_horizontal.webp" alt="PROКультура.РФ" loading="lazy"></a>
+          <a href="https://национальныепроекты.рф" target="_blank" rel="noopener" title="Нацпроекты «Культура»"><img src="assets/img/natsproekty_kultura.webp" alt="Нацпроекты «Культура»" loading="lazy"></a>
+      </div>
+  <div class="footer-bottom">
+    <span>© 2026 Культурный центр «Музыкальный Мир»</span>
+    <span>При информационной поддержке Министерств культуры и образования субъектов Российской Федерации</span>
+  </div>
+</div></footer>
+
+<button class="chat-fab" id="chatFab" aria-label="Поддержка">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>
+</button>
+
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

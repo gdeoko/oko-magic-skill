@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<script>document.documentElement.className+=' js';</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Заказ наградного материала — КЦ «Музыкальный Мир»</title>
+<meta name="description" content="Оформление заказа наградного материала: кубки, статуэтки, медали и дипломы КЦ «Музыкальный Мир».">
+<meta name="theme-color" content="#FFFCF5">
+<meta property="og:title" content="Заказ наградного материала — КЦ «Музыкальный Мир»">
+<meta property="og:description" content="Оформление заказа наградного материала: кубки, статуэтки, медали и дипломы КЦ «Музыкальный Мир».">
+<meta property="og:image" content="/assets/img/logo_muzmir_main.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/logo_muzmir_256.png">
+<link rel="apple-touch-icon" href="assets/img/logo_muzmir_256.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="topbar"><div class="container">
+  <a href="tel:+79509459900">+7 (950) 945-99-00</a>
+  <span>Роскомнадзор №094084 от 24.06.2025</span>
+</div></div>
+
+<header class="header"><div class="container">
+  <a class="brand" href="index.html">
+    <img src="assets/img/logo_muzmir_256.png" alt="Логотип КЦ «Музыкальный Мир»">
+    <span>Музыкальный<br>Мир</span>
+  </a>
+  <nav class="nav" id="nav">
+          <a href="index.html" class="">Главная</a>
+          <a href="competitions.html" class="">Конкурсы</a>
+          <a href="apply.html" class="">Подать заявку</a>
+          <a href="awards.html" class="active">Награды</a>
+          <a href="concerts.html" class="">Концерты</a>
+          <a href="about.html" class="">О нас</a>
+          <a href="faq.html" class="">Вопросы</a>
+          <a href="contacts.html" class="">Контакты</a>
+        <div class="nav-cta-mobile">
+              <a class="btn btn--ghost" href="login.html">Войти</a>
+        <a class="btn btn--primary" href="apply.html">Подать заявку</a>
+          </div>
+  </nav>
+  <div class="nav-actions">
+          <a class="btn btn--ghost" href="login.html">Войти</a>
+      <a class="btn btn--primary" href="apply.html">Подать заявку</a>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+
+<main>
+<section class="section section--parchment">
+  <div class="container" style="max-width:760px">
+    <div class="section-head reveal">
+      <p class="eyebrow">Награды</p>
+      <h2>Заказ наградного материала</h2>
+      <p>Заполните форму, отметьте нужные позиции - сумма пересчитывается сразу. Заказ оформляется после оплаты.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:760px">
+    <form id="awardsOrderForm" class="reveal" novalidate>
+      <input type="hidden" name="_csrf" value="247565dff6fb754565cc00cbcb948142">
+      <div class="field">
+        <label for="fullName">ФИО участника</label>
+        <input type="text" id="fullName" name="full_name" placeholder="Иванова Мария Сергеевна" required>
+        <span class="err-msg">Укажите ФИО участника.</span>
+      </div>
+
+      <div class="field">
+        <label for="competition">Конкурс</label>
+        <select id="competition" name="competition" required>
+          <option value="">Выберите конкурс</option>
+                      <option value="simfoniya-zvyozd" >Симфония Звёзд</option>
+                      <option value="vershina-masterstva" >Вершина Мастерства</option>
+                      <option value="mirovaya-scena" >Мировая Сцена</option>
+                      <option value="slava-rossii" >Слава России</option>
+                      <option value="profi" >Профи</option>
+                      <option value="evrika" >Эврика</option>
+                      <option value="buduschee-rossii" >Будущее России</option>
+                      <option value="atlanty-iskusstva" >Атланты Искусства</option>
+                      <option value="den-pobedy" >День Победы</option>
+                      <option value="grani-talanta" >Грани Таланта</option>
+                      <option value="tvorchestvo-bez-granic" >Творчество без Границ</option>
+                  </select>
+        <span class="err-msg">Выберите конкурс.</span>
+      </div>
+
+      <div class="field">
+        <label for="result">Аттестационный результат</label>
+        <select id="result" name="result" required>
+          <option value="">Выберите результат</option>
+                      <option value="ГРАН-ПРИ">ГРАН-ПРИ</option>
+                      <option value="ЛАУРЕАТ 1 степени">ЛАУРЕАТ 1 степени</option>
+                      <option value="ЛАУРЕАТ 2 степени">ЛАУРЕАТ 2 степени</option>
+                      <option value="ЛАУРЕАТ 3 степени">ЛАУРЕАТ 3 степени</option>
+                      <option value="ДИПЛОМАНТ 1 степени">ДИПЛОМАНТ 1 степени</option>
+                      <option value="ДИПЛОМАНТ 2 степени">ДИПЛОМАНТ 2 степени</option>
+                      <option value="ДИПЛОМАНТ 3 степени">ДИПЛОМАНТ 3 степени</option>
+                  </select>
+        <span class="err-msg">Выберите аттестационный результат.</span>
+      </div>
+
+      <div class="field">
+        <label>Тип награды</label>
+        <div id="awardItems" style="border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:6px 16px">
+          <p style="color:var(--muted);margin:12px 0">Сначала выберите конкурс.</p>
+        </div>
+        <span class="hint">Можно отметить несколько позиций.</span>
+        <span class="err-msg" id="itemsErr">Отметьте хотя бы одну позицию наградного материала.</span>
+      </div>
+
+      <div class="field">
+        <label for="address">Адрес доставки</label>
+        <textarea id="address" name="address" rows="3" placeholder="Индекс, город, улица, дом, квартира" required></textarea>
+        <span class="hint">Заполняется, если выбран оригинал наградного материала.</span>
+        <span class="err-msg">Укажите адрес доставки.</span>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="field">
+          <label for="email">Электронная почта</label>
+          <input type="email" id="email" name="email" placeholder="mail@example.ru" required>
+          <span class="err-msg">Укажите корректную электронную почту.</span>
+        </div>
+        <div class="field">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <span class="err-msg">Укажите телефон для связи.</span>
+        </div>
+      </div>
+
+      <div class="card" style="background:var(--gold-light);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:22px">
+        <span style="font-weight:700">Сумма к оплате</span>
+        <b id="totalDisplay" style="font-family:var(--ff-head);font-size:1.6rem;color:var(--gold-dark)">0 ₽</b>
+      </div>
+
+      <div class="field">
+        <label>Способ оплаты</label>
+        <label class="card" style="display:flex;align-items:center;gap:14px;cursor:pointer">
+          <input type="radio" name="pay_method" value="yukassa" checked style="width:auto;flex:none">
+          <span style="width:30px;height:30px;color:var(--gold-dark);flex:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+          <span>
+            <b>ЮKassa</b> - банковской картой<br>
+            <span class="hint">Приём платежей подключается. После оформления заказа с Вами свяжется Оргкомитет.</span>
+          </span>
+        </label>
+      </div>
+
+      <button class="btn btn--primary btn--lg btn--block" type="submit" id="submitBtn">Оформить заказ и перейти к оплате</button>
+      <p id="formMsg" style="text-align:center;margin-top:14px"></p>
+    </form>
+  </div>
+</section>
+
+<script>
+(function () {
+  var PRICES = {"simfoniya-zvyozd":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"vershina-masterstva":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"mirovaya-scena":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"slava-rossii":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"profi":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"evrika":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"buduschee-rossii":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"atlanty-iskusstva":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"den-pobedy":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"grani-talanta":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000},"tvorchestvo-bez-granic":{"Благодарность||digital":300,"Благодарность||original":400,"Дополнительный диплом||digital":350,"Дополнительный диплом||original":450,"Именной диплом||digital":400,"Именной диплом||original":500,"Кубок Гран-при||original":1500,"Медаль дипломанта||original":500,"Основной диплом||digital":400,"Основной диплом||original":500,"Статуэтка лауреата||original":1000}};
+  var META = {"Благодарность||digital":{"item":"Благодарность","kind":"digital","label":"Благодарность - Электронная версия"},"Благодарность||original":{"item":"Благодарность","kind":"original","label":"Благодарность - Оригинал (почтой)"},"Дополнительный диплом||digital":{"item":"Дополнительный диплом","kind":"digital","label":"Дополнительный диплом - Электронная версия"},"Дополнительный диплом||original":{"item":"Дополнительный диплом","kind":"original","label":"Дополнительный диплом - Оригинал (почтой)"},"Именной диплом||digital":{"item":"Именной диплом","kind":"digital","label":"Именной диплом - Электронная версия"},"Именной диплом||original":{"item":"Именной диплом","kind":"original","label":"Именной диплом - Оригинал (почтой)"},"Кубок Гран-при||original":{"item":"Кубок Гран-при","kind":"original","label":"Кубок Гран-при - Оригинал (почтой)"},"Медаль дипломанта||original":{"item":"Медаль дипломанта","kind":"original","label":"Медаль дипломанта - Оригинал (почтой)"},"Основной диплом||digital":{"item":"Основной диплом","kind":"digital","label":"Основной диплом - Электронная версия"},"Основной диплом||original":{"item":"Основной диплом","kind":"original","label":"Основной диплом - Оригинал (почтой)"},"Статуэтка лауреата||original":{"item":"Статуэтка лауреата","kind":"original","label":"Статуэтка лауреата - Оригинал (почтой)"}};
+
+  var form = document.getElementById('awardsOrderForm');
+  var compSel = document.getElementById('competition');
+  var itemsBox = document.getElementById('awardItems');
+  var totalEl = document.getElementById('totalDisplay');
+  var msg = document.getElementById('formMsg');
+
+  function money(n) { return n.toLocaleString('ru-RU') + ' ₽'; }
+
+  function renderItems(slug) {
+    var rows = PRICES[slug] || {};
+    var keys = Object.keys(rows);
+    if (!keys.length) {
+      itemsBox.innerHTML = '<p style="color:var(--muted);margin:12px 0">Прайс для этого конкурса не заполнен. Свяжитесь с Оргкомитетом.</p>';
+      recompute();
+      return;
+    }
+    var html = '';
+    keys.forEach(function (k) {
+      var m = META[k] || { label: k };
+      html += '<label style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer">' +
+        '<span><input type="checkbox" class="award-item" data-key="' + k + '" data-price="' + rows[k] + '" style="width:auto;margin-right:10px">' + m.label + '</span>' +
+        '<b>' + money(rows[k]) + '</b></label>';
+    });
+    itemsBox.innerHTML = html;
+    recompute();
+  }
+
+  function recompute() {
+    var boxes = itemsBox.querySelectorAll('.award-item:checked');
+    var total = 0;
+    boxes.forEach(function (b) { total += parseInt(b.getAttribute('data-price'), 10) || 0; });
+    totalEl.textContent = money(total);
+  }
+
+  compSel.addEventListener('change', function () { renderItems(compSel.value); });
+  itemsBox.addEventListener('change', function (e) { if (e.target.classList.contains('award-item')) recompute(); });
+
+  if (compSel.value) renderItems(compSel.value);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var boxes = itemsBox.querySelectorAll('.award-item:checked');
+    var ok = form.checkValidity();
+    if (!boxes.length) {
+      document.getElementById('itemsErr').parentNode.classList.add('error');
+      ok = false;
+    } else {
+      document.getElementById('itemsErr').parentNode.classList.remove('error');
+    }
+    if (!ok) { form.reportValidity(); return; }
+
+    var items = [];
+    var amount = 0;
+    boxes.forEach(function (b) {
+      var k = b.getAttribute('data-key'), price = parseInt(b.getAttribute('data-price'), 10) || 0;
+      var m = META[k] || {};
+      items.push({ item: m.item || k, kind: m.kind || '', price: price });
+      amount += price;
+    });
+
+    var payload = new FormData(form);
+    payload.append('items', JSON.stringify(items));
+    payload.append('amount', amount);
+
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Отправляем...';
+    fetch('/api/v1/order', { method: 'POST', body: payload })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        btn.disabled = false; btn.textContent = 'Оформить заказ и перейти к оплате';
+        if (d && d.ok) {
+          msg.style.color = 'var(--mint)';
+          msg.textContent = d.message || 'Заказ оформлен. Переход к оплате ЮKassa будет доступен после подключения магазина.';
+          form.reset(); itemsBox.innerHTML = '<p style="color:var(--muted);margin:12px 0">Сначала выберите конкурс.</p>'; totalEl.textContent = money(0);
+        } else {
+          msg.style.color = 'var(--error)';
+          msg.textContent = (d && d.message) || 'Не удалось отправить заказ. Попробуйте ещё раз.';
+        }
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = 'Оформить заказ и перейти к оплате';
+        msg.style.color = 'var(--mint)';
+        msg.textContent = 'Заказ принят. Оргкомитет свяжется с Вами для оплаты.';
+        form.reset();
+      });
+  });
+})();
+</script>
+</main>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo_muzmir_256.png" alt="Логотип">
+      <p>Культурный центр «Музыкальный Мир»</p>
+      <p style="opacity:.7;font-size:.85rem">Роскомнадзор №094084 от 24.06.2025</p>
+    </div>
+    <div>
+      <h4>Разделы</h4>
+      <ul>
+                  <li><a href="competitions.html">Конкурсы</a></li>
+                  <li><a href="apply.html">Подать заявку</a></li>
+                  <li><a href="awards.html">Награды</a></li>
+                  <li><a href="concerts.html">Концерты</a></li>
+                  <li><a href="about.html">О нас</a></li>
+              </ul>
+    </div>
+    <div>
+      <h4>Информация</h4>
+      <ul>
+        <li><a href="goals.html">Цели и задачи</a></li>
+        <li><a href="ministry-support.html">Поддержка министерства</a></li>
+        <li><a href="faq.html">Вопросы и ответы</a></li>
+        <li><a href="agreement.html">Пользовательское соглашение</a></li>
+        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <ul>
+        <li>109240, г. Москва, ул. Солянка, д.14, стр.7</li>
+        <li><a href="tel:+79509459900">+7 (950) 945-99-00</a></li>
+        <li><a href="mailto:kulturniy.centr.mir@mail.ru">kulturniy.centr.mir@mail.ru</a></li>
+        <li>Пн-Пт 09:00-18:00, Сб 10:00-16:00, Вс выходной</li>
+        <li><a href="https://vk.com/music_world.online" target="_blank" rel="noopener">ВКонтакте</a> · <a href="https://t.me/kc_mus_mir" target="_blank" rel="noopener">Telegram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-partners">
+          <a href="https://culture.gov.ru" target="_blank" rel="noopener" title="Минкультуры РФ"><img src="assets/img/emblem_minkultury_rf.webp" alt="Минкультуры РФ" loading="lazy"></a>
+          <a href="https://minobrnauki.gov.ru" target="_blank" rel="noopener" title="Минобрнауки РФ"><img src="assets/img/emblem_minobrazovaniya.webp" alt="Минобрнауки РФ" loading="lazy"></a>
+          <a href="https://rkn.gov.ru" target="_blank" rel="noopener" title="Роскомнадзор"><img src="assets/img/emblem_roskomnadzor.webp" alt="Роскомнадзор" loading="lazy"></a>
+          <a href="https://pro.culture.ru" target="_blank" rel="noopener" title="PROКультура.РФ"><img src="assets/img/prokultura_full_horizontal.webp" alt="PROКультура.РФ" loading="lazy"></a>
+          <a href="https://национальныепроекты.рф" target="_blank" rel="noopener" title="Нацпроекты «Культура»"><img src="assets/img/natsproekty_kultura.webp" alt="Нацпроекты «Культура»" loading="lazy"></a>
+      </div>
+  <div class="footer-bottom">
+    <span>© 2026 Культурный центр «Музыкальный Мир»</span>
+    <span>При информационной поддержке Министерств культуры и образования субъектов Российской Федерации</span>
+  </div>
+</div></footer>
+
+<button class="chat-fab" id="chatFab" aria-label="Поддержка">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>
+</button>
+
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

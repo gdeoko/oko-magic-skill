@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<script>document.documentElement.className+=' js';</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Вход — КЦ «Музыкальный Мир»</title>
+<meta name="description" content="Вход в личный кабинет участника КЦ «Музыкальный Мир».">
+<meta name="theme-color" content="#FFFCF5">
+<meta property="og:title" content="Вход — КЦ «Музыкальный Мир»">
+<meta property="og:description" content="Вход в личный кабинет участника КЦ «Музыкальный Мир».">
+<meta property="og:image" content="/assets/img/logo_muzmir_main.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/logo_muzmir_256.png">
+<link rel="apple-touch-icon" href="assets/img/logo_muzmir_256.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="topbar"><div class="container">
+  <a href="tel:+79509459900">+7 (950) 945-99-00</a>
+  <span>Роскомнадзор №094084 от 24.06.2025</span>
+</div></div>
+
+<header class="header"><div class="container">
+  <a class="brand" href="index.html">
+    <img src="assets/img/logo_muzmir_256.png" alt="Логотип КЦ «Музыкальный Мир»">
+    <span>Музыкальный<br>Мир</span>
+  </a>
+  <nav class="nav" id="nav">
+          <a href="index.html" class="">Главная</a>
+          <a href="competitions.html" class="">Конкурсы</a>
+          <a href="apply.html" class="">Подать заявку</a>
+          <a href="awards.html" class="">Награды</a>
+          <a href="concerts.html" class="">Концерты</a>
+          <a href="about.html" class="">О нас</a>
+          <a href="faq.html" class="">Вопросы</a>
+          <a href="contacts.html" class="">Контакты</a>
+        <div class="nav-cta-mobile">
+              <a class="btn btn--ghost" href="login.html">Войти</a>
+        <a class="btn btn--primary" href="apply.html">Подать заявку</a>
+          </div>
+  </nav>
+  <div class="nav-actions">
+          <a class="btn btn--ghost" href="login.html">Войти</a>
+      <a class="btn btn--primary" href="apply.html">Подать заявку</a>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+
+<main>
+<section class="section">
+  <div class="container" style="max-width:460px">
+    <div class="section-head reveal" style="margin-bottom:28px">
+      <p class="eyebrow">Личный кабинет</p>
+      <h2>Вход</h2>
+      <div class="gold-rule"></div>
+      <p>Войдите, чтобы отслеживать заявки, результаты и наградные документы.</p>
+    </div>
+
+    <div class="card reveal" style="padding:28px">
+      <form method="post" action="login.html" novalidate>
+        <input type="hidden" name="_csrf" value="3b381d4f5b84f6832737d09982b5b2b3">        <input type="hidden" name="next" value="/cabinet">
+        <div class="field">
+          <label for="email">Электронная почта</label>
+          <input type="email" id="email" name="email" value="" placeholder="you@example.ru" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="password">Пароль</label>
+          <input type="password" id="password" name="password" placeholder="Ваш пароль" autocomplete="current-password" required>
+          <div class="hint"><a href="/forgot">Забыли пароль?</a></div>
+        </div>
+        <button class="btn btn--primary btn--block btn--lg" type="submit">Войти</button>
+      </form>
+
+      <div style="display:flex;align-items:center;gap:12px;margin:22px 0;color:var(--muted);font-size:.85rem">
+        <span style="flex:1;height:1px;background:var(--line)"></span>или<span style="flex:1;height:1px;background:var(--line)"></span>
+      </div>
+
+      <div style="display:grid;gap:12px">
+                  <button type="button" class="btn btn--ghost btn--block" disabled style="opacity:.55;cursor:not-allowed"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.4a5.5 5.5 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.6-5.2 3.6-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-3l-3.9-3a7.2 7.2 0 0 1-10.7-3.8H1.4v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.4 14.2a7.1 7.1 0 0 1 0-4.5V6.6H1.4a12 12 0 0 0 0 10.8z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.4 6.6l4 3.1A7.2 7.2 0 0 1 12 4.8z"/></svg> Войти через Google</button>
+        
+                  <button type="button" class="btn btn--ghost btn--block" disabled style="opacity:.55;cursor:not-allowed"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#0077FF" d="M13 18.5c-6.3 0-10-4.3-10.1-11.5h3.2c.1 5.3 2.5 7.6 4.3 8.1V7h3v4.6c1.8-.2 3.7-2.3 4.4-4.6h3c-.5 2.8-2.5 4.9-4 5.8 1.5.7 3.8 2.6 4.7 5.7h-3.3c-.7-2.2-2.4-3.9-4.8-4.2v4.2H13z"/></svg> Войти через VK</button>
+        
+                  <button type="button" class="btn btn--ghost btn--block" disabled style="opacity:.55;cursor:not-allowed"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m22 3-9.5 9.5M22 3l-6.5 18-3.5-8-8-3.5L22 3z"/></svg> Войти через Telegram</button>
+              </div>
+              <p class="hint" style="text-align:center;margin:12px 0 0">Часть способов входа подключается - пока доступен вход по почте.</p>
+      
+      <p style="text-align:center;margin:20px 0 0;color:var(--muted)">
+        Нет аккаунта? <a href="register.html">Зарегистрируйтесь</a>
+      </p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo_muzmir_256.png" alt="Логотип">
+      <p>Культурный центр «Музыкальный Мир»</p>
+      <p style="opacity:.7;font-size:.85rem">Роскомнадзор №094084 от 24.06.2025</p>
+    </div>
+    <div>
+      <h4>Разделы</h4>
+      <ul>
+                  <li><a href="competitions.html">Конкурсы</a></li>
+                  <li><a href="apply.html">Подать заявку</a></li>
+                  <li><a href="awards.html">Награды</a></li>
+                  <li><a href="concerts.html">Концерты</a></li>
+                  <li><a href="about.html">О нас</a></li>
+              </ul>
+    </div>
+    <div>
+      <h4>Информация</h4>
+      <ul>
+        <li><a href="goals.html">Цели и задачи</a></li>
+        <li><a href="ministry-support.html">Поддержка министерства</a></li>
+        <li><a href="faq.html">Вопросы и ответы</a></li>
+        <li><a href="agreement.html">Пользовательское соглашение</a></li>
+        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <ul>
+        <li>109240, г. Москва, ул. Солянка, д.14, стр.7</li>
+        <li><a href="tel:+79509459900">+7 (950) 945-99-00</a></li>
+        <li><a href="mailto:kulturniy.centr.mir@mail.ru">kulturniy.centr.mir@mail.ru</a></li>
+        <li>Пн-Пт 09:00-18:00, Сб 10:00-16:00, Вс выходной</li>
+        <li><a href="https://vk.com/music_world.online" target="_blank" rel="noopener">ВКонтакте</a> · <a href="https://t.me/kc_mus_mir" target="_blank" rel="noopener">Telegram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-partners">
+          <a href="https://culture.gov.ru" target="_blank" rel="noopener" title="Минкультуры РФ"><img src="assets/img/emblem_minkultury_rf.webp" alt="Минкультуры РФ" loading="lazy"></a>
+          <a href="https://minobrnauki.gov.ru" target="_blank" rel="noopener" title="Минобрнауки РФ"><img src="assets/img/emblem_minobrazovaniya.webp" alt="Минобрнауки РФ" loading="lazy"></a>
+          <a href="https://rkn.gov.ru" target="_blank" rel="noopener" title="Роскомнадзор"><img src="assets/img/emblem_roskomnadzor.webp" alt="Роскомнадзор" loading="lazy"></a>
+          <a href="https://pro.culture.ru" target="_blank" rel="noopener" title="PROКультура.РФ"><img src="assets/img/prokultura_full_horizontal.webp" alt="PROКультура.РФ" loading="lazy"></a>
+          <a href="https://национальныепроекты.рф" target="_blank" rel="noopener" title="Нацпроекты «Культура»"><img src="assets/img/natsproekty_kultura.webp" alt="Нацпроекты «Культура»" loading="lazy"></a>
+      </div>
+  <div class="footer-bottom">
+    <span>© 2026 Культурный центр «Музыкальный Мир»</span>
+    <span>При информационной поддержке Министерств культуры и образования субъектов Российской Федерации</span>
+  </div>
+</div></footer>
+
+<button class="chat-fab" id="chatFab" aria-label="Поддержка">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>
+</button>
+
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>
